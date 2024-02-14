@@ -101,4 +101,22 @@ async function createSubCategoryStatusController(req, res) {
 }
 
 
-module.exports = { createCategoryController, createSubCategoryController, createCategoryStatusController, createSubCategoryStatusController, };
+ async function getAllCategoryController(req,res){
+
+   const category = await CategoryList.find({})
+  res.send(category)
+}
+
+
+ async function getAllSubCategoryController(req,res){
+
+   const subcategory = await SubCategoryList.find({})
+  res.send(subcategory)
+}
+
+
+
+
+
+
+module.exports = { createCategoryController, createSubCategoryController, createCategoryStatusController, createSubCategoryStatusController,getAllCategoryController,getAllSubCategoryController};
