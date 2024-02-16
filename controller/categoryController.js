@@ -61,13 +61,14 @@ async function createSubCategoryController(req, res) {
         description,
         category
     })
-    
+
     await CategoryList.findOneAndUpdate(
-        { _id: subcategory.category},
-        {$push:{ subcategory: subcategory._id}},
+        { _id: subcategory.category },
+        { $push: { subcategory: subcategory._id } },
         { new: true }
-        )
-        subcategory.save();
+    )
+      subcategory.save();
+
     res.send({ success: "SubCategory created successfully done" })
 
 }
@@ -101,17 +102,17 @@ async function createSubCategoryStatusController(req, res) {
 }
 
 
- async function getAllCategoryController(req,res){
+async function getAllCategoryController(req, res) {
 
-   const category = await CategoryList.find({})
-  res.send(category)
+    const category = await CategoryList.find({})
+    res.send(category)
 }
 
 
- async function getAllSubCategoryController(req,res){
+async function getAllSubCategoryController(req, res) {
 
-   const subcategory = await SubCategoryList.find({})
-  res.send(subcategory)
+    const subcategory = await SubCategoryList.find({})
+    res.send(subcategory)
 }
 
 
@@ -119,4 +120,4 @@ async function createSubCategoryStatusController(req, res) {
 
 
 
-module.exports = { createCategoryController, createSubCategoryController, createCategoryStatusController, createSubCategoryStatusController,getAllCategoryController,getAllSubCategoryController};
+module.exports = { createCategoryController, createSubCategoryController, createCategoryStatusController, createSubCategoryStatusController, getAllCategoryController, getAllSubCategoryController };
