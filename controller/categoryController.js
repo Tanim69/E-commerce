@@ -104,15 +104,18 @@ async function createSubCategoryStatusController(req, res) {
 
 async function getAllCategoryController(req, res) {
 
-    const category = await CategoryList.find({})
-    res.send(category)
+    const category = await CategoryList.find({}).populate('subcategory');
+    res.send(category);
 }
+
+
+
 
 
 async function getAllSubCategoryController(req, res) {
 
-    const subcategory = await SubCategoryList.find({})
-    res.send(subcategory)
+    const subcategory = await SubCategoryList.find({});
+    res.send(subcategory);
 }
 
 

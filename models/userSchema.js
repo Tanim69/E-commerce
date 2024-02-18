@@ -24,10 +24,22 @@ const userSchema = new Schema({
     division: String,
     district: String,
     password: String,
-    verified:{
+    emaiverified:{
         type:Boolean,
         default:false
-    }
+    },
+    role:{
+        type:String,
+        default:"user",
+        enum:["user","admin","merchant"]
+    },
+    created:{
+        type:Date,
+        default:new Date()
+      },
+      updated:{
+        type:Date
+      }
 
 
 })
