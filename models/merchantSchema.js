@@ -20,6 +20,17 @@ const storeSchema = new Schema({
         type:String,
         require:true
     },
+
+    owner:{
+        type:Schema.Types.ObjectId,
+        ref:"UserList"
+    },
+
+
+    products:[{
+        type:Schema.Types.ObjectId,
+        ref:"products",
+    }],
     created: {
         type: Date,
         default: new Date()
@@ -28,6 +39,7 @@ const storeSchema = new Schema({
         type: Date
     }
 
+});
 
 
-})
+module.exports= mongoose.model("store",storeSchema)
